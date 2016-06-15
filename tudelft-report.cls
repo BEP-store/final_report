@@ -50,7 +50,7 @@
     \fi
 \fi
 \RequirePackage{metalogo}
-\RequirePackage[numbers,sort&compress]{natbib}
+\RequirePackage[sort & compress]{natbib}
 \RequirePackage{tikz}
 \RequirePackage[noindentafter]{titlesec}
 \RequirePackage{titletoc}
@@ -184,9 +184,9 @@
     \hypersetup{pdftitle=#2}%
 }
 %% Redefine the author command to add the name to the PDF meta data.
-\renewcommand*\author[1]{%
-    \def\@author{#1}%
-    \hypersetup{pdfauthor=#1}%
+\renewcommand*\author[3]{%
+    \def\@author{#1\\#2\\#3}%
+    \hypersetup{pdfauthor=#1\_#2\_#3}%
 }
 %% The affiliation is shown in the blue box on the front cover.
 \newcommand*\affiliation[1]{\def\@affiliation{#1}}

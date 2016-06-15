@@ -1,0 +1,25 @@
+\chapter{SIG Feedback}
+There are two checks performed by the Software Improvement Group (SIG). Their original feedback was in Dutch which has been translated.
+\section{First feedback}
+The code of the system scores 4.5 stars on our maintainability-scale, which means that the maintainability of the code is above average. However, improvements can be made when it comes to Duplication.\\[0.5cm]
+Duplication looks at the percentage of code which is redundant, in other words the code that has multiple occurrences in the system and can be removed. From the perspective of maintainability, it is desirable to have a low percentage of redundancy, because adjustments to the redundant code have to be done in multiple places.\\[0.5cm]
+Multiple duplications can be found in this project. For example, the file \textit{click-outside.js} is present two times in the upload. Duplication was found between the files \textit{show.js}, \textit{edit.js} and \textit{deploy.js}. In the html-code (\textit{422.html}, \textit{404.html} and \textit{500.html}) is also duplicated, the same 45 line of code is present in all three locations. Try to rewrite the code in a easier way, such that the code can be reused instead of duplicated.\\[0.5cm]
+Finally it is good to see that you have written a lot of test-code besides the production-code. The ratio of test-code and production-code is 2:3.\\[0.5cm]
+We hope that you are able to maintain the quality of the code as well as the ratio of test-code and production-code during the remainder of the project.
+
+\comment{
+De code van het systeem scoort 4.5 ster op ons onderhoudbaarheidsmodel, wat betekent dat de code bovengemiddeld onderhoudbaar is. Er zijn echter een paar verbeteringspunten bij Duplication.
+
+Voor Duplicatie wordt er gekeken naar het percentage van de code welke redundant is, oftewel de code die meerdere keren in het systeem voorkomt en in principe verwijderd zou kunnen worden. Vanuit het oogpunt van onderhoudbaarheid is het wenselijk om een laag percentage redundantie te hebben omdat aanpassingen aan deze stukken code doorgaans op meerdere plaatsen moet gebeuren. 
+
+Er zijn in dit project meerdere duplciaties te vinden: bijvoorbeeld het click-outside.js bestand is twee keer in de upload aanwezig. Verder is duplicatie gevonden tussen de bestanden show.js, edit.js en deploy.js. Ook in de html code (422.html 404.html, 500.html) is de code gekopieerd, dezelfde 45 lines of code zijn aanwezig op alle drie verschillende locaties. Probeer deze code te herschrijven op een slimmere manier, zodat de code wordt hergebruikt in plaats van gedupliceerd. 
+
+Tot slot is het goed om te zien dat jullie naast productiecode ook redelijk veel testcode hebben geschreven. De verhouding tussen testcode en productiecode is 2:3. 
+
+Hopelijk lukt het jullie nog om zowel de kwaliteit van de code als de verhouding tussen testcode en productiecode tijdens het vervolg van het project te behouden.}
+
+\subsection*{Processing of feedback}
+The feedback indicates that the structure we are using is a good structure. The ratio of test-code and production-code is pretty high. If we maintain this ratio, we will end with a well-tested product.\\[0.5cm]
+Most of the specific comments are about duplication. The html-code which contains a lot of duplication is auto-generated code made by \textit{Ruby on Rails}. This is code that we don't want or need to change in order for it to work.\\
+We looked at the duplication in \textit{show.js}, \textit{edit.js} and \textit{deploy.js}, and concluded that \textit{deploy.js} should be \textit{destroy.js}. We refactored part of the duplication into its own function. Part of the duplication was part of the way Ember structures code and could not be replaced.\\
+However, after the feedback we about the way we reuse code. Code that was used in multiple places were noticed and commented on in pull requests. Pull request were only merged if the duplication was removed.

@@ -1,4 +1,6 @@
-\documentclass{tudelft-report}
+\documentclass[oneside]{tudelft-report}
+\newcommand{\comment}[1]{}
+\usepackage{enumitem}
 
 \begin{document}
 
@@ -7,7 +9,7 @@
 \frontmatter
 
 \title[Final report\\TI3806 - Bachelorproject]{BEPStore}
-\author{Bart Heemskerk\\ Wouter Kooyman van Guldener\\ Steffan Sluis}
+\author{Bart Heemskerk}{Wouter Kooyman van Guldener}{Steffan Sluis}
 \affiliation{Technische Universiteit Delft}
 \coverimage{cover.jpg}
 \makecover
@@ -16,18 +18,30 @@
 \input{title}
 
 \input{preface}
+\input{summary}
 
 \tableofcontents
 
 %% Use Arabic numerals for the page numbers of the chapters.
 \mainmatter
 
-\input{chapter-1}
+\input{content/introduction}
+\input{content/client}
+\input{content/problem}
+\input{content/process}
+\input{content/solution}
+\input{content/conclusion}
 
 %% Use letters for the chapter numbers of the appendices.
 \appendix
 
-%\input{appendix-a}
+\input{appendix/original-problem}
+\input{appendix/infosheet}
+\input{appendix/research}
+\input{appendix/SIG}
+\input{appendix/reflection}
+\input{appendix/division-of-labor}
+\input{appendix/design-and-implementation}
 
 \bibliography{report}
 
