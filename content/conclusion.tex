@@ -1,11 +1,23 @@
 \chapter{Conclusion}
 
-Over the course of this project, several problems were addressed and solutions were found. This chapter analyses the solutions in order to show how and to what extent they solve the problems. The chapter is divided into two sections. The first section is about the results that were found while testing solutions. The second section gives a list of recommendations for building upon the results and solutions found over the course of this project.
-
-\section{Desired effects}
+Over the course of this project, several problems were addressed and solutions were found. This chapter analyses the solution in order to show how and to what extent it solves the problems. The chapter is divided into three sections. The first section draws conclusions about the results of the comparison between the solution and its implementation. The second section gives recommendations for building upon the implemented solution. The third section suggests how the research done for this project might be expanded upon.
 
 \section{Results}
 
+The previous chapter compares the implemented solution with the requirements found during the research phase of the project. In this comparison, the most remarkable differences can be found in the coverage of the different use case that were specified. Of the four use cases, the third and fourth use case could not be fulfilled with the current solution implementation. These use cases are concerned with the share of designs and giving feedback on community contributions. These features were not implemented due to a revision of the planning because of delays.
+
+Looking at the solution requirements it becomes clear that the solution mostly lacks a feedback system. This will have impact on the engagement of the users, because feedback promotes engagement. The reason that these requirements were not fulfilled during the development is also due to the revision of the planning. In the implementation, the issues and milestones are displayed, therefore giving feedback on the process of the goal. To get feedback on the quality of the goal and the work of an individual, the solution must request information about the content of contributions. Doing that in an effective way turned out to be more complicated then originally estimated. GitHub facilitates the feedback in a proper way for the developers, the main users of the feedback. Because of that, it was decided that the feedback about code and quality should remain on GitHub for this version of the solution.
+
 % Steffan
 \section{Recommendations}
-Something about integrating external services instead of rebuilding them.
+The most important recommendation is to implement a feedback mechanism as described in the previous section. Such a mechanism would boost the engagement of the platform and increase the ease of determining the value of community contributions.
+
+Additionally, the implemented solution is designed to accommodate integrations with external services. Due to the scope of the project, 
+the amount of available integrations is not very large. If the solution is adopted by the client, it is recommended to implement integrations for other services. The integrations that are implemented with the solution focus on the link between developers and non-developers. Because of this, it would be beneficial to focus on integrations with services that target other parts of the software development process, or aspects around it, such as the design of software components.
+
+Furthermore, the implementation of requirements engineering within the solution could be improved. Currently a small layer of extra functionality is added to GitHub issues and milestones. This process could be extended to integrate these issues and milestones better into the solution.
+
+\section{Further research}
+The research that was performed over the course of this project unites community engagement with distributed software development, and aims to provide guidelines towards implementing a platform that unites these subjects. It could possibly be expanded upon by finding guidelines for the union of community engagement in other fields and processing these into a general process for stimulating community engagement.
+
+Alternatively, further research could target the more specific forms of community engagement in software development to offer a comparison of the effectiveness of different techniques. The research on community engagement performed over the course of this project offers general guidelines rather than a specific set of instructions or a particular method.

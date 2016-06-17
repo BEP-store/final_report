@@ -4,27 +4,118 @@ This chapter explains how the solution works for the problem that was described 
 
 %Bart
 \section{Specification}
-It appears that GitHub already implements most of the features needed as specified in the problem analysis. The resulting platform should therefor be an extension to the GitHub platform so it can also be used by non-developers. In the research report a MoSCoW model was proposed \Citep * [chap. 5.5]{research-report:v1.0}
+Looking at the recommendations from the research report (appendix \ref{app:research_report}, chapter 5.5), it appears that GitHub already implements most of the features that are needed. However, GitHub lacks a few functionalities that are a necessary to engage the whole community. The reasons for not solely using GitHub are:
+\begin{description}
+    \item [Community scope:]
+            The community in the scope of GitHub are software engineers, designers and programmers/developers. Not all users of the client's platform are among these, so they may not be able to use all the functionality of GitHub. 
+    \item [Project scope:]
+            GitHub projects are usually based in one repository. Because of that, it is difficult to obtain a clear view of the status of a project when it uses multiple repositories. When building a new feature for the client, there is always an minimum of two repositories: one for the front-end and one for the back-end.
+    \item [Communication scope:]
+            GitHub uses comments and issues for communication between users. There is no such thing as instant messaging implemented by GitHub. Gitter is a solution for that, but it is still another platform.
+\end{description}
+To solve these issues, a platform should be created that extends the GitHub platform so it is more friendly to non-developers. This solution should tackle the problems mentioned above, while still facilitating the functionality of GitHub. The terminology used on GitHub should be adapted in order for non-developers to understand the functionalities of the solution. 
 
-\subsection{Requirements}
-MoSCoW
+To ensure optimal usability for the non-developers, the implementation will closely follow to the recommendations from the research rapport on the subjects of naming, user-flow and platform structure (appendix \ref{app:research_report}, chapter 5.5).
 
-\subsection{Success critera/Use Cases}
-% Maybe split this into formal/informal?
+One of the main features of the solution is not the development of a feature, but facilitating that a user can give the feedback that they are missing a feature. If enough users agree that this feature is lacking in the platform of the client, the value of this feature for the client will go up simply be the increase in demand. The client can pick up on that by developing and integrating the feature themselves.
 
 \subsection{Definition of Done}
-Iets over ons eigen platform gebruiken om zichzelf te ontwikkelen.
+To determine if the implementation is a solution to the problem, a definition of done can be established. The final product is compared to this definition, to give a clear view of what has and has not been implemented in the final project. For every requirement in the definition of done, a small explanation will be given.
 
+The final product is done when:
+\begin{itemize}
+    \item \textbf{It makes it possible for non-technical users to use GitHub}\\
+            One of the main focuses of the platform is to involve non-developers in indicating missing features and overseeing if the implemented feature is what they want it to be. If the solution can tackle the three problems with GitHub as described above while still facilitating the native functionality of GitHub, then the solution as a product has a value for the client.
+    \item \textbf{It realises the use cases as described in the research report}\\
+            A few use cases are described in the research rapport (appendix \ref{app:research_report}, chapter 5.5). These use cases gives a good indication of how the solution can be used. The solution will meet the expected user-experience if it implements the use cases.
+    \item \textbf{It contains all the must-have functionality of the MoSCoW requirements}\\
+            A list of requirements can be found in Appendix \ref{app:solution_req}. These requirements have their own subset which can be seen as the definition of done: the must-haves. The must-haves of those requirements will be part of what the solution must implement.
+    \item \textbf{It can be used to facilitate its own improvement}\\
+            Due to the nature of the problem, a good solution should be able to be used to itself to improve itself. The implementation must therefore also be able to facilitate its own development and improvement. This will also ensure that the user-experience is tested while developing the solution.
+\end{itemize}
 
 \section{Implementation}
-% issue 11
-Complete description of the final product. %plus graphics
+This section describes the solution implementation. The implementation is structured around the process of collaboratively achieving goals using existing tools. To describe how the implementation attempts to facilitate this process, the following sections describe four of the main aspects in the solution implementation: goals, integrations, supporters and communication.
 
-% FlowChart
+\subsection{Goals}
+The first and most important aspect of the solution implementation is the central focus around goals. Goals can be broken down into smaller challenges that can be solved separately by a small group of contributors. This allows users to apply specialised skills while still contributing to the greater goal.
+
+\subsection{Integrations}
+The solution implementation is structured around the integration of external services. This allows users to use the tools they are familiar with, while still being able to benefit from goals as a hub for the information produced by the different tools. Although the solution implementation offers a limited set of integrations, namely GitHub integration and Gitter integration, it is designed to be extended as the need for more integrations grows.
+
+\subsection{Supporters}
+Finding support for a goal can speed up the progress exponentially. For this reason, it is important that each type of supporter can contribute to a goal. To make sure the solution implementation facilitates this, an analysis was made to identify the different roles a user can assume (appendix \ref{app:research_report}, chapter 5.5). Figure \ref{fig:usecase} describes how the solution implementation can be used by different types of users:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics*[width=\textwidth]{./media/UmlUseCase}
+    \caption{UML: use-case diagram of the solution}
+    \label{fig:usecase}
+\end{figure}
+
+
+\subsection{Communication}
+Different types of supporters often have their own preferred means of communication. The focus of the solution implementation is on integrations. This allows one type of supporter to communicate internally using their preferred tool, but communication between different types of supporters is also required in order to successfully achieve a goal. For this reason, every goal has a chat functionality built in via the Gitter integration. This connects all the supporters of a goal and allows them broadcast relevant information. Additionally, the current status of a goal can be updated by its core team to communicate major progress updates.
+
+\subsection{Implementation structure}
+
+The individual aspects of the solution implementation are in accordance with the conclusions of the research report (appendix \ref{app:research_report}, chapter 5). The relations between these aspects are shown in figure \ref{fig:classdiagram}.
 
 % UML Diagram
+\begin{figure}[hb!]
+    \centering
+    \includegraphics*[width=\textwidth, keepaspectratio=true]{./media/uml}
+    \caption{UML: General Class Diagram}
+    \label{fig:classdiagram}
+\end{figure}
+\newpage
+
+\subsection{Technologies}
+The solution implementation is built on top of modern web technologies and designed to be used with the client's platform (appendix \ref{app:research_report}, chapter 4). The back-end of the implementation uses Ruby on Rails is used in conjunction with MongoDB and is structure in such a way that it can be integrated into the client platform for easy use by the existing users of the client's platform. The front-end of the solution implementation is built with Ember.js for the same reason. Websockets are used to stream updates to users so that any changes made by one user are immediately visible by all the others.
+
+These technologies are nearly identical to the technologies used by the client, allowing them to adopt the implementation much more easily since the expertise needed to use and extend it is already present with the client.
+
+% issue 11
+% Complete description of the final product. %plus graphics
+
 
 % Plaatje van uiteindelijke platform (?)
 
+\section{Validation}
+This section states the biggest differences between the specification and the implementation of the solution. This is done by looking at each element of the definition of done, and how much of it is implemented in the final product.
 
-% \section{Conclusion}
+\subsection{GitHub improvements}
+The three reasons for why GitHub could not be used as a solution for the client were: the different community-scope, project scope and communication scope. By renaming certain elements of GitHub (like projects into goals, milestones into challenges and issues into sub-challenges), the solution becomes more understandable for non-developers. Non-developer users are able to follow a goal without having much technical knowledge, because the product owner is able to give updates in textual form.
+
+The solution also enables developers to add GitHub repositories to a goal. All repositories linked to one goal can be seen on one page, thus enabling supporters to keep track of multiple repositories while still working on one project. The solution also uses Gitter to facilitate dedicated chat in a project. It enables the users of the platform to talk about requirements, functionalities and design in an informal setting and in realtime.
+
+\subsection{Use Cases}
+The use cases as defined in the research rapport (appendix \ref{app:research_report}, chapter 5.5) were used as a basis for the specification of the solution. These use cases consist of four moments in the creation of a goal, where three users are involved. To validate the implementation of the solution, what can and cannot be done with the implementation will be taken into account when looking at the four moments.
+
+The first use case can be replicated with the implementation. A user can create a goal and share it on Twitter and Facebook. The second use case can also be replicated, but with a minor difference. A developer is able to decompose a goal into challenges, and will be able to set up the development toolset. However, no review mechanism for contributions is in available in the implemented solution. When a challenge or sub-challenge is submitted, it will be saved without review.
+
+The third and fourth use case have a few elements that are not present in the implementation. The third use case describes how multiple designs are uploaded and shared on a external website. In the implementation, designs cannot be uploaded or  shared on an external website. The fourth use case speaks of a notification, no notifications have been implemented in the solution. This is also the reason why the core-team does not get an automated test-report from the platform. A user can also not comment on a design, because no comment-system is present.
+
+\subsection{MoSCoW requirements}
+
+Most of the must-have functionalities as described in Appendix \ref{app:solution_req} have been implemented. Almost all should-have requirements have also been implemented. However, almost does not mean all. The following requirements have not been fulfilled:
+\begin{itemize}
+    \item a user must be able to get information about the quality of the goal
+    \item a user must be able give and get feedback on (his/her) code/work
+    \item a user should be able to search/browse for goals
+    \item a user should be able to get updates
+    \item a user should be able to see his/her contributions
+\end{itemize}
+
+
+\subsection{Facilitating own development}
+Because the solution is able to fetch data from multiple GitHub repositories, it can be said that the solution can facilitate its own development. Besides the functionality that is already mentioned, it is able to see all the milestones and issues of the solutions.\\
+The development-team of the solution have used the solution to check if the user-flow of the solution feels natural. The consequences of this testing were that a few restrictions were made on the platform to improve user experience. For example, the user can only add a few types of labels when creating an issue. This prevents the user being flooded with options when creating an issue.
+
+\subsection{Quality assurance}
+To ensure the quality and the maintainability of the code, the solution was monitored by Codecov and Codeclimate. The front-end of the implementation has a test-coverage of 65\% and a code climate of 3.8 out of 4. The back-end of the implementation has a test-coverage of 87\% and a code climate of 4 out of 4. Furthermore, the usability of the implemented solution is verified during a hackathon where the the implementation will be used to improve the clients platform. This allows the solution to be tested by the intended users and the client to benefit from the developed features.
+
+% Steffan
+\section{Extensibility}
+
+The solution described in this report is targeted at the users of the online learning platform, as well as software developers. In practice, the solution could also be applied in a different context, since no assumptions were made about the feedback or new features. In function, the solution is a toolset for collaborative problem solving using software. It adheres to the principle of integration over reinventing the wheel, and as such can easily be extended to accommodate integration with other services than GitHub and Gitter. Due to the modular nature of the solution, it could also be easily adapted to integrate with other platforms than that of the client. Due to the nature of the problem that was solved, the implementation of the solution can be used to guide the its own extension. This creates a feedback loop between the users of the solution implementation and the implementers of extensions to the solution.

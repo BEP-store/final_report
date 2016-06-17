@@ -1,19 +1,41 @@
 %Wouter
 \chapter{Process}
 
-This chapter describes the specifics of the process followed over the course of this project. It is divided into two section. 
+This chapter describes the specifics of the process followed over the course of this project. It is divided into three sections that each address a vital part of a healthy process. The first section discusses the communication used, while the second section covers how the progress is maintained. The final section addresses how the quality of the code-base is assured.
 
-
-2 week research report, brainstorm,  problem analysis, Scrum, MoSCoW, 
-https://www.sharelatex.com/project
 \section{Communication}
-
-\section{Research}
+Communication is the most important aspect of the development process as identified in the research report (appendix \ref{app:research_report}). The team works on location, thus verbal communication is the primary method of communication. Slack is used for sharing information that is verbally difficult to share such as links and documents. For communication about code GitHub Pull Requests are used.
 
 %Steffan
-% \subsection{Rarareflection dingen}
 \section{Solution requirements}
-issue 5
+At the start of the project, two weeks of extensive research were conducted on the subject of collaborative software development and community engagement. To assure a correct solution corresponding to the results found in the research report, the team had a brainstorm session with the purpose of translating the conclusions of the research into a conceptual solution. The result of this session is included in appendix  \ref{app:brainstorm1}. This conceptual solution was then analysed and decomposed into solution requirements (see chapter 6 of the research report).
 
-\section{Quality Assurance}
-Iets over CI, CD, coverage, duplication
+\section{Progress maintenance}
+Progress is mainly protected with a scrum approach. A Waffle.io\footnote{\url{https://waffle.io}} scrum board is used that integrates with GitHub issues and milestones. Furthermore, the teams takes part in the weekly Tuesday meetings at FeedbackFruits. These are feedback sessions in which progress is reported and the whole FeedbackFruits team can comment and give feedback. Besides these weekly meetings, the team meets roughly every two weeks with a representative from FeedbackFruits and Emile Hendriks, the TU Delft coach.
+
+\section{Quality assurance}
+The software development process is extensively backed with tools to automatically measure the quality of the project with help of \gls{ci}. Quality can be quantified into many different aspects. \Gls{sig} chose six key properties as key metrics: volume, redundancy, unit size, complexity, unit interface size and coupling \Citep{sig2012}. Furthermore, tools are used to improve the code-style and the stability of the platform.
+
+\subsection{Code climate}
+To improve the maintainability of the code, CodeClimate\footnote{\url{https://codeclimate.com}} is used. CodeClimate assesses and advises on the complexity, duplication, security and style of the code. Besides CodeClimate, tools such as Rubocop\footnote{\url{http://batsov.com/rubocop/}} and JSHint\footnote{\url{http://jshint.com/}} are used for more specific complexity and style improvements. The aim is to have the maximum CodeClimate score of $4.0$ and have no Rubocop and JSHint errors.
+
+\subsection{High cohesion, loose coupling}
+Smaller systems are easier to understand and maintain. Although the proposed system will not be very high in volume, it may get bulky when a lot of features are implemented. To overcome this issue, the system is decomposed into separate components that are each responsible for a specific functionality. This makes adding features to the system relatively easy and reduces the risk of breaking the system.
+
+\subsection{Continuous integration}
+To maintain a stable production environment of a high quality, \gls{ci} by CircleCI\footnote{\url{https://circleci.com}} is used. CircleCI takes care of automatically building and running the tests when a commit is pushed to GitHub.
+
+\subsection{Testing}
+While testing should not be a goal in itself, it is a useful asset to verify whether the system does what it is supposed to do. To automatically measure how much of the code the tests cover, Codecov\footnote{\url{https://codecov.io}} is used as a GitHub integration. The aim is to continuously have a code-coverage of above $90\%$.
+
+
+% Most These tools are GitHub pull-requests, CircleCIn the list below, the used tools are listed and described. 
+
+% \begin{description}[align=right,labelwidth=3cm]
+%     \item [GitHub] pull requests are used to discuss and improve the code before it is merged into the main codebase;
+%     \item [CircleCI] continuous integration, utilising the RSpec test suite and Rubocop for style;
+%     \item [CodeCov] test coverage;
+%     \item [CodeClimate] 
+% \end{description}
+
+% CircleCI is configured to 

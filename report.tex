@@ -1,6 +1,13 @@
 \documentclass[oneside]{tudelft-report}
 \newcommand{\comment}[1]{}
 \usepackage{enumitem}
+\usepackage[acronym,nomain]{glossaries} % Load the glossary pacakage with the acronym option
+\setlength{\parskip}{1em}
+\usepackage[justification=centering]{caption}
+\usepackage{pdfpages}
+\usepackage{subcaption}
+
+\newcommand{\noop}[1]{} % a do-nothing command that serves a purpose
 
 \begin{document}
 
@@ -11,16 +18,22 @@
 \title[Final report\\TI3806 - Bachelorproject]{BEPStore}
 \author{Bart Heemskerk}{Wouter Kooyman van Guldener}{Steffan Sluis}
 \affiliation{Technische Universiteit Delft}
-\coverimage{cover.jpg}
+\coverimage{cover2.jpg}
 \makecover
 
 %% Include an optional title page.
 \input{title}
 
+% Define any acronyms
+\input{acronyms}
+
 \input{preface}
 \input{summary}
 
 \tableofcontents
+
+% reset acronyms
+\glsresetall
 
 %% Use Arabic numerals for the page numbers of the chapters.
 \mainmatter
@@ -36,11 +49,13 @@
 \appendix
 
 \input{appendix/original-problem}
+\input{appendix/requirements}
 \input{appendix/infosheet}
 \input{appendix/research}
+\input{appendix/conceptual-solution}
+
 \input{appendix/SIG}
 \input{appendix/reflection}
-\input{appendix/division-of-labor}
 \input{appendix/design-and-implementation}
 
 \bibliography{report}
